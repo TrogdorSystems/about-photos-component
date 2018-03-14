@@ -1,1 +1,0 @@
-# about-photos-components
