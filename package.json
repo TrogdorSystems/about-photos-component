@@ -10,7 +10,6 @@
     "server": "nodemon server/server.js",
     "seed-data": "node db/database.js",
     "seed": "node db/gen10MData.js",
-    "workers": "node db/workers.js",
     "build-prod": "./node_modules/.bin/webpack --config ./webpack.production.config.js",
     "build": "webpack -p"
   },

@@ -29,9 +29,8 @@ function write10Mtimes() {
 
     while (i > 0 && storageSpace) {                                   // while still decrementing and still have storage
       i--;
-      if (i % 500000 === 0) console.log(i); 
-      const data = generateData();                                    // generate faker data while in loop
-      storageSpace = writeStream.write(`${JSON.stringify(data)}\n`);  // check if there's still space when writing data
+      const data = generateData(i);                                    // generate faker data while in loop
+      storageSpace = writeStream.write(JSON.stringify(data));         // check if there's still space when writing data
     }     
 
     if (i > 0) {                                                      // [ Exited while loop ] if storageSpace = false && i > 0 

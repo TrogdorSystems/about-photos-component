@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 const sampleData = require('../data/sampleData.js');
-// const exec = require('child_process').exec;
 
 mongoose.connect("mongodb://localhost/restaurant");
   // || `mongodb://${process.env.DB_USER}:${process.env.DB_PW}@ds259778.mlab.com:59778/abouts`);
@@ -29,7 +28,7 @@ sampleData.forEach((data) => {
 
   about.save((err, res) => {
     if (err) {
-      console.log(err, 'errrrrr');
+      throw error;
     } else {
       count += 1;
       if (count === 119) {
