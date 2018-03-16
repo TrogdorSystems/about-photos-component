@@ -1,15 +1,12 @@
- const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const faker = require('faker');
 const sampleData = require('../data/sampleData.js');
-
+// const exec = require('child_process').exec;
 
 mongoose.connect("mongodb://localhost/restaurant");
   // || `mongodb://${process.env.DB_USER}:${process.env.DB_PW}@ds259778.mlab.com:59778/abouts`);
-
 const aboutSchema = mongoose.Schema({
-  id: {
-    type: Number,
-    unique: true,
-  },
+  id: Number,
   name: String,
   about: {
     description: String,
@@ -22,7 +19,6 @@ const aboutSchema = mongoose.Schema({
   photo: [],
 });
 
-
 const About = mongoose.model('About', aboutSchema);
 
 let count = 0;
@@ -33,7 +29,7 @@ sampleData.forEach((data) => {
 
   about.save((err, res) => {
     if (err) {
-      // console.log(err, 'errrrrr');
+      console.log(err, 'errrrrr');
     } else {
       count += 1;
       if (count === 119) {
@@ -65,4 +61,3 @@ const findOne = (obj, cb) => {
 
 module.exports.find = find;
 module.exports.findOne = findOne;
-
