@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const faker = require('faker');
 const sampleData = require('../data/sampleData.js');
 
 mongoose.connect("mongodb://localhost/restaurant");
@@ -9,10 +8,10 @@ const aboutSchema = mongoose.Schema({
   name: String,
   about: {
     description: String,
-    hours: String,
-    price: String,
+    hours: Number,
+    price: Number,
     style: String,
-    phone: String,
+    phone: Number,
   },
   banner: [],
   photo: [],
@@ -20,23 +19,23 @@ const aboutSchema = mongoose.Schema({
 
 const About = mongoose.model('About', aboutSchema);
 
-let count = 0;
+// let count = 0;
 
-sampleData.forEach((data) => {
+// sampleData.forEach((data) => {
 
-  const about = new About(data);
+//   const about = new About(data);
 
-  about.save((err, res) => {
-    if (err) {
-      throw error;
-    } else {
-      count += 1;
-      if (count === 119) {
-        mongoose.disconnect();
-      }
-    }
-  });
-});
+//   about.save((err, res) => {
+//     if (err) {
+//       throw error;
+//     } else {
+//       count += 1;
+//       if (count === 119) {
+//         mongoose.disconnect();
+//       }
+//     }
+//   });
+// });
 
 const find = (obj, cb) => {
   About.find(obj, (err, about) => {
