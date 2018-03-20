@@ -55,4 +55,38 @@ npm run build-prod
 ```
 
 
+### Other Useful Commands
+```
+cli cmds: 
+knex migrate:make restaurants_and_imgs_tables
+knex seed:make 01_restaurants
+
+
+knex migrate:rollback
+knex migrate:latest
+knex seed:run
+
+psql
+List of useful psql commands
+
+\?   // help
+\q   // quit
+\l   // list databases
+\dt  // show tables
+\dt <name>
+\i <filename> // run filename with commands
+select * from restaurants;
+select * from reservations;
+
+
+
+\copy restaurant from 'db/csv/restaurantsInfo.csv' csv;
+\copy imgs from 'db/csv/imgs.csv' csv;
+ALTER TABLE imgs add foreign key (restaurant_id) references restaurant (id);
+
+explain analyze select * from restaurant where name  = 'voluptatem sapiente quos';
+CREATE INDEX on restaurant (name);
+
+```
+
 Component should be available on http://localhost:3004

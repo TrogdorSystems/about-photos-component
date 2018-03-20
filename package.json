@@ -9,9 +9,12 @@
     "dev": "webpack -d --watch",
     "server": "nodemon server/server.js",
     "seed-data": "node db/database.js",
-    "seed": "node db/gen10MData.js",
+    "seed-mongo": "node db/gen10MData.js",
+    "seed-pg": "node db/gen10MDataSQL.js",
     "build-prod": "./node_modules/.bin/webpack --config ./webpack.production.config.js",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "pg-start": "pg_ctl -D /usr/local/var/postgres start",
+    "pg-stop": "pg_ctl -D /usr/local/var/postgres stop"
   },
   "repository": {
     "type": "git",
@@ -35,8 +38,10 @@
     "forever": "^0.15.3",
     "forever-monitor": "^1.7.1",
     "jquery": "^3.3.1",
+    "knex": "^0.14.4",
     "mongodb-memory-server": "^1.7.0",
     "mongoose": "^5.0.6",
+    "pg": "^7.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "webpack": "^3.11.0"
