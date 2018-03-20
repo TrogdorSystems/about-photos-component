@@ -53,6 +53,7 @@ To build webpack for production:
 ```
 npm run build-prod
 ```
+Component should be available on http://localhost:3004
 
 
 ### Other Useful Commands
@@ -89,4 +90,6 @@ CREATE INDEX on restaurant (name);
 
 ```
 
-Component should be available on http://localhost:3004
+
+[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
