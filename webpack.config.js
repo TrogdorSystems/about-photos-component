@@ -19,9 +19,6 @@ var config = {
       }
     ]
   },
-  plugins: [
-    new Dotenv()
-  ],
 }
 
 

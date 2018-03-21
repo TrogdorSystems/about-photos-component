@@ -1,12 +1,17 @@
 config:
-  target: 'https://localhost:8081'
+  target: "http://localhost:8082"
+  http:
+    pool: 100
   phases:
-    - duration: 60
-      arrivalRate: 10
+    - duration: 20
+      arrivalRate: 100
   defaults:
     headers:
       x-my-service-auth: '987401838271002188298567'
 scenarios:
   - flow:
-    - get:
-        url: "/restaurants"
+    - loop:
+      - get:
+          url: "/" 
+          # /?=305
+      count: 1000

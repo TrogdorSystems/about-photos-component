@@ -14,4 +14,17 @@ router.get('/:id', (req, res) => {
   })
 });
 
+
+router.get('/:name', (req, res) => {
+  res.set({ 'Access-Control-Allow-Origin' : '*' });
+  db.find(req.params, (err, data) => {
+    if (err) {
+      res.sendStatus(404);
+    } else {
+      res.send(data);
+    }
+  })
+});
+
+
 module.exports = router;
