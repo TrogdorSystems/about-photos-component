@@ -5,7 +5,7 @@ const exec = require('child_process').exec;   // enables multiple processes and 
 function generateData(i) {
   return {
     id: i,
-    name: faker.company.companyName(),
+    name: `Restaurant_${i}`,
     about: {
       description: faker.lorem.paragraph(),
       hours: faker.random.number(),
@@ -13,8 +13,8 @@ function generateData(i) {
       style: faker.random.word(),
       phone: faker.phone.phoneNumber(),
     },
-    banner: [faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl()],
-    photo: [faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl()],
+    banner: [faker.image.nightlife(), faker.image.food(), faker.image.city(), faker.image.fashion()],
+    photo: [faker.image.food(), faker.image.nightlife(), faker.image.cats()],
   };
 }
 
@@ -29,6 +29,7 @@ function write10Mtimes() {
 
     while (i > 0 && storageSpace) {                                   // while still decrementing and still have storage
       i--;
+      if(i%100000 === 0) console.log(i);
       const data = generateData(i);                                   // generate faker data while in loop
       storageSpace = writeStream.write(JSON.stringify(data));         // check if there's still space when writing data
     }     

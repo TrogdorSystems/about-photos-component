@@ -16,27 +16,19 @@ const aboutSchema = mongoose.Schema({
   },
   banner: [],
   photo: [],
-});
+}).index({name: 1});
 
 const About = mongoose.model('About', aboutSchema);
 
-let count = 0;
-
-sampleData.forEach((data) => {
-
-  const about = new About(data);
-
-  about.save((err, res) => {
+const findByRestaurantId = (id, cb) => {
+  About.find({ name: `Restaurant_${id}`}, (err, results) => {
     if (err) {
-      throw error;
+      cb(err,null);
     } else {
-      count += 1;
-      if (count === 119) {
-        mongoose.disconnect();
-      }
+      cb(null, results);
     }
-  });
-});
+  }).limit(1);
+};
 
 const find = (obj, cb) => {
   About.find(obj, (err, about) => {
@@ -45,7 +37,7 @@ const find = (obj, cb) => {
     } else {
       cb(null, about);
     }
-  });
+  }).limit(1);
 };
 
 const findOne = (obj, cb) => {
@@ -55,8 +47,9 @@ const findOne = (obj, cb) => {
     } else {
       cb(null, results);
     }
-  });
+  })
 }
 
+module.exports.findByRestaurantId = findByRestaurantId;
 module.exports.find = find;
 module.exports.findOne = findOne;
