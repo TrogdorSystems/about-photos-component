@@ -1,6 +1,9 @@
 const faker = require('faker');
 const fs = require('fs');
+// const mongoose = require('mongoose');
 const exec = require('child_process').exec;   // enables multiple processes and distributes applications to many nodes to best scale Node 
+
+// mongoose.connect('mongodb://ec2-52-53-242-104.us-west-1.compute.amazonaws.com/restaurants');
 
 function generateData(i) {
   return {
@@ -38,10 +41,10 @@ function write10Mtimes() {
       writeStream.once('drain', write);                               // use once method and 'drain' then recurse write fn again
     }
 
-    if (i === 0) {    // when all data is generated
-      const command = 'mongoimport --db restaurant --collection abouts --file abouts.csv --numInsertionWorkers 25';
-      exec(command);  // use child_process exec method to execute mongoimport to seed data into db
-    }                 
+    // if (i === 0) {    // when all data is generated
+    //   const command = 'mongoimport --uri mongodb://ec2-18-144-62-164.us-west-1.compute.amazonaws.com/restaurants --collection abouts --file abouts.csv --numInsertionWorkers 25';
+    //   exec(command);  // use child_process exec method to execute mongoimport to seed data into db
+    // }                 
   }
 }
 write10Mtimes();

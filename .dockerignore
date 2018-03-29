@@ -1,0 +1,8 @@
+node_modules
+db/csv/imgs.csv
+db/csv/restaurantsInfo.csv
+abouts.csv
+bundle.js
+newrelic_agent.log
+public/app.js
+public/app-server.js
