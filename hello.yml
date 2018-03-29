@@ -1,5 +1,5 @@
 config:
-  target: "http://localhost:8082"
+  target: "http://ec2-54-183-93-245.us-west-1.compute.amazonaws.com"
   http:
     pool: 100
   phases:

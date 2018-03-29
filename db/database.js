@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const faker = require('faker');
 const sampleData = require('../data/sampleData.js');
 
-mongoose.connect("mongodb://localhost/restaurant");
+// const dbURL = process.env.MONGO_URL || 'mongodb://mongo/restaurants';
+
+// mongoose.connect(dbURL);
+
+mongoose.connect('mongodb://ec2-18-144-62-164.us-west-1.compute.amazonaws.com/restaurants');
   // || `mongodb://${process.env.DB_USER}:${process.env.DB_PW}@ds259778.mlab.com:59778/abouts`);
 const aboutSchema = mongoose.Schema({
   id: Number,
